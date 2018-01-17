@@ -16,7 +16,8 @@
 difff = diff --word-diff
 s = status
 co = checkout
-ad = add -A
+aa = add -A
 pom = push origin master
 pol = pull origin master
-cm = commit
+c = commit
+aac = add -A && commit
