@@ -1,18 +1,22 @@
 [user]
 	name = takao-h
 	email = hayashi_takao@cyberbuzz.co.jp
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
 [core]
-	excludesfile = /Users/ruth/.gitignore_global
-	autocrlf = input
-	editor = vi
+	excludesfile = /Users/k40059/.gitignore_global
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[alias]
 
-
+# 行ごとの差分じゃなくて，単語レベルでの差分を色付きで表示する
+difff = diff --word-diff
+s = status
+co = checkout
+ad = add -A
+pom = push origin master
+pol = pull origin master
+cm = commit
