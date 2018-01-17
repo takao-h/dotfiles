@@ -11,9 +11,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs.
-
-
-r
 export EDITOR='vim'
 
 ### jenv
@@ -28,16 +25,16 @@ eval "$(pyenv init -)"
 ### nodenv
 eval "$(nodenv init -)"
 
-# rbenv
+### rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# direnv
+### direnv
 eval "$(direnv hook zsh)"
 
-#--------------------------------------
-# その他
-# -------------------------------------
+###--------------------------------------
+### その他
+### -------------------------------------
 
 # cdしたあとで、自動的に ls する
-function chpwd() { ls -1 }.
+ vfunction chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
