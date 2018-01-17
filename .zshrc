@@ -35,6 +35,13 @@ eval "$(direnv hook zsh)"
 ###--------------------------------------
 ### その他
 ### -------------------------------------
+alias pull='git pull'
+alias pull-m ='git pull origin master'
+alias push='git push'
+alias push-m = 'git push origin master'
+alias st='git status'
+
+
 
 # git alias
 alias g='git'
