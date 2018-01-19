@@ -1,0 +1,24 @@
+[user]
+ name = takao-h
+ email = hayashi_takao@cyberbuzz.co.jp
+[core]
+ excludesfile = /Users/k40059/.gitignore_global
+ editor = vim
+[difftool "sourcetree"]
+ cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+ path =
+[mergetool "sourcetree"]
+ cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+ trustExitCode = true
+
+[alias]
+
+# 行ごとの差分じゃなくて，単語レベルでの差分を色付きで表示する
+difff = diff --word-diff
+s = status
+co = checkout
+aa = add -A
+pom = push origin master
+pol = pull origin master
+c = commit
+aac = add -A && commit
