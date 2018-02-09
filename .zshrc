@@ -43,7 +43,7 @@ fpath=(path/to/zsh-completions/src $fpath)
 alias g='git'
 alias pull='git pull'
 alias push='git push'
-alias st='git status'
+
 
 # cdしたあとで、自動的に ls する
  vfunction chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
