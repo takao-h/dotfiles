@@ -53,6 +53,7 @@ fpath=(path/to/zsh-completions/src $fpath)
 alias g='git'
 alias pull='git pull'
 alias push='git push'
+alias diff='git diff'
 
 
 # cdしたあとで、自動的に ls する
