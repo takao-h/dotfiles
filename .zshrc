@@ -92,7 +92,10 @@ zstyle ':completion::complete:*' use-cache true
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 補完リストの表示間隔を狭くする
 setopt list_packed
- 
+# 重複したヒストリの削除
+setopt hist_ignore_all_dups
+# ディレクトリ名だけでcdする
+setopt auto_cd
 # コマンドの打ち間違いを指摘してくれる
 #setopt correct
 #SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
