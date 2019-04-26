@@ -46,6 +46,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ### direnv
 # eval "$(direnv hook zsh)"
 
+### deno
+export PATH=~/.deno/bin:${PATH}
+
 ###--------------------------------------
 ### その他
 ### -------------------------------------
