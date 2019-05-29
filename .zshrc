@@ -28,17 +28,6 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH="$HOME/.exenv/bin:$PATH"
 eval "$(exenv init -)"
 
-
-###-----------------------------------
-###alias
-###-----------------------------------
-alias lg='lazygit'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias sozsh='source ~/.zshrc'
-alias zshconfig='vi ~/.zshrc'
-
 ### rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -49,12 +38,21 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ### deno
 export PATH=~/.deno/bin:${PATH}
 
+###-----------------------------------
+###alias
+###-----------------------------------
+alias lg='lazygit'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias sozsh='source ~/.zshrc'
+alias zshconfig='vim ~/.zshrc'
+
 ###--------------------------------------
 ### その他
 ### -------------------------------------
-
-
 fpath=(path/to/zsh-completions/src $fpath)
+
 ###-------------------------------------
 # git alias
 ###-------------------------------------
@@ -65,26 +63,30 @@ alias diff='git diff'
 alias gco='git checkout'
 alias n='git checkout -b'
 
-# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
-setopt prompt_subst
+###-------------------------------------
+### cdしたあとで、自動的に ls する
+###-------------------------------------
+ vfunction chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
 
-# プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
-RPROMPT='`rprompt-git-current-branch`'
+###-------------------------------------
+# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
+###-------------------------------------
+setopt prompt_subst
 
 
 # --------------------------------------------------
 #  コマンド入力補完
 # --------------------------------------------------
- 
+
 # 補完機能有効にする
 autoload -U compinit
 compinit -u
- 
+
 # 補完候補に色つける
 autoload -U colors
 colors
 zstyle ':completion:*' list-colors "${LS_COLORS}"
- 
+
 # 単語の入力途中でもTab補完を有効化
 setopt complete_in_word
 # 補完候補をハイライト
@@ -95,10 +97,11 @@ zstyle ':completion::complete:*' use-cache true
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 補完リストの表示間隔を狭くする
 setopt list_packed
-# 重複したヒストリの削除
-setopt hist_ignore_all_dups
-# ディレクトリ名だけでcdする
-setopt auto_cd
+
 # コマンドの打ち間違いを指摘してくれる
 #setopt correct
 #SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
