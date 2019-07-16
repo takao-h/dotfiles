@@ -38,6 +38,10 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ### deno
 export PATH=~/.deno/bin:${PATH}
 
+### Go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 ###-----------------------------------
 ###alias
 ###-----------------------------------
@@ -53,6 +57,12 @@ alias zshconfig='vim ~/.zshrc'
 ### -------------------------------------
 fpath=(path/to/zsh-completions/src $fpath)
 
+### 検索
+gg () {
+open -a /Applications/Google\ Chrome.app \
+    "http://www.google.com/search?q= $1"
+    echo "Now googling $1..."
+}
 ###-------------------------------------
 # git alias
 ###-------------------------------------
@@ -77,16 +87,16 @@ setopt prompt_subst
 # --------------------------------------------------
 #  コマンド入力補完
 # --------------------------------------------------
-
+ 
 # 補完機能有効にする
 autoload -U compinit
 compinit -u
-
+ 
 # 補完候補に色つける
 autoload -U colors
 colors
 zstyle ':completion:*' list-colors "${LS_COLORS}"
-
+ 
 # 単語の入力途中でもTab補完を有効化
 setopt complete_in_word
 # 補完候補をハイライト
@@ -97,7 +107,7 @@ zstyle ':completion::complete:*' use-cache true
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 補完リストの表示間隔を狭くする
 setopt list_packed
-
+ 
 # コマンドの打ち間違いを指摘してくれる
 #setopt correct
 #SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
