@@ -57,12 +57,6 @@ alias zshconfig='vim ~/.zshrc'
 ### -------------------------------------
 fpath=(path/to/zsh-completions/src $fpath)
 
-### 検索
-gg () {
-open -a /Applications/Google\ Chrome.app \
-    "http://www.google.com/search?q= $1"
-    echo "Now googling $1..."
-}
 ###-------------------------------------
 # git alias
 ###-------------------------------------
