@@ -42,6 +42,13 @@ export PATH=~/.deno/bin:${PATH}
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+### Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+### Flutter
+export FLUTTER="/Users/k00121/Dev/flutter/bin"
+export PATH=$FLUTTER:$PATH
+
 ###-----------------------------------
 ###alias
 ###-----------------------------------
@@ -55,7 +62,8 @@ alias zshconfig='vim ~/.zshrc'
 ###--------------------------------------
 ### その他
 ### -------------------------------------
-fpath=(path/to/zsh-completions/src $fpath)
+
+
 
 ###-------------------------------------
 # git alias
@@ -81,19 +89,18 @@ setopt prompt_subst
 # --------------------------------------------------
 #  コマンド入力補完
 # --------------------------------------------------
-
 # カレントディレクトリ表示
 RPROMPT='%B%F{green}[%d]%f%b'
 
 # 補完機能有効にする
 autoload -U compinit
 compinit -u
- 
+
 # 補完候補に色つける
 autoload -U colors
 colors
 zstyle ':completion:*' list-colors "${LS_COLORS}"
- 
+
 # 単語の入力途中でもTab補完を有効化
 setopt complete_in_word
 # 補完候補をハイライト
@@ -104,7 +111,7 @@ zstyle ':completion::complete:*' use-cache true
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 補完リストの表示間隔を狭くする
 setopt list_packed
- 
+
 # コマンドの打ち間違いを指摘してくれる
 #setopt correct
 #SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
