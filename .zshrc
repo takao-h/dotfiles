@@ -58,7 +58,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias sozsh='source ~/.zshrc'
 alias zshconfig='vim ~/.zshrc'
-
+ 
 ###--------------------------------------
 ### その他
 ### -------------------------------------
@@ -74,6 +74,7 @@ alias push='git push'
 alias diff='git diff'
 alias gco='git checkout'
 alias n='git checkout -b'
+alias stash='git stash'
 
 ###-------------------------------------
 ### cdしたあとで、自動的に ls する
@@ -85,12 +86,11 @@ alias n='git checkout -b'
 ###-------------------------------------
 setopt prompt_subst
 
-
 # --------------------------------------------------
 #  コマンド入力補完
 # --------------------------------------------------
 # カレントディレクトリ表示
-RPROMPT='%B%F{green}[%d]%f%b'
+# RPROMPT='%B%F{green}[%d]%f%b'
 
 # 補完機能有効にする
 autoload -U compinit
