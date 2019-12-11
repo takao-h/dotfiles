@@ -46,8 +46,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 
 ### Flutter
-export FLUTTER="/Users/k00121/Dev/flutter/bin"
-export PATH=$FLUTTER:$PATH
+# export PATH="/Users/k00121/Dev/flutter/bin"
 
 ###-----------------------------------
 ###alias
@@ -58,7 +57,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias sozsh='source ~/.zshrc'
 alias zshconfig='vim ~/.zshrc'
- 
+
 ###--------------------------------------
 ### その他
 ### -------------------------------------
@@ -74,7 +73,6 @@ alias push='git push'
 alias diff='git diff'
 alias gco='git checkout'
 alias n='git checkout -b'
-alias stash='git stash'
 
 ###-------------------------------------
 ### cdしたあとで、自動的に ls する
@@ -86,11 +84,12 @@ alias stash='git stash'
 ###-------------------------------------
 setopt prompt_subst
 
+
 # --------------------------------------------------
 #  コマンド入力補完
 # --------------------------------------------------
 # カレントディレクトリ表示
-# RPROMPT='%B%F{green}[%d]%f%b'
+RPROMPT='%B%F{green}[%d]%f%b'
 
 # 補完機能有効にする
 autoload -U compinit
@@ -119,3 +118,7 @@ export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/k00121/.sdkman"
+[[ -s "/Users/k00121/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/k00121/.sdkman/bin/sdkman-init.sh"
