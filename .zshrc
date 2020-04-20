@@ -71,8 +71,8 @@ alias g='git'
 alias pull='git pull'
 alias push='git push'
 alias diff='git diff'
-alias gco='git checkout'
-alias n='git checkout -b'
+alias gco='git switch'
+alias n='git switch -c'
 
 ###-------------------------------------
 ### cdしたあとで、自動的に ls する
