@@ -3,7 +3,8 @@ alias g='git'
 alias pull='git pull origin'
 alias push='git push origin'
 alias diff='git diff'
-
+alias n='git switch -c'
+alias switch='git switch'
 # actovator
 alias acuc='activator cleanu pdate compile run'
 alias debug='activator -jvm-debug 9999 run'
