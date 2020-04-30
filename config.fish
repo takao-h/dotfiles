@@ -1,32 +1,37 @@
-# git
-alias g='git'
-alias pull='git pull origin'
-alias push='git push origin'
-alias diff='git diff'
-alias n='git switch -c'
-alias switch='git switch'
-# actovator
-alias acuc='activator cleanu pdate compile run'
-alias debug='activator -jvm-debug 9999 run'
+ # git alias
+ alias g='git'
+ alias pull='git pull origin'
+ alias push='git push origin'
+ alias diff='git diff'
+ alias n='git switch -n'
+ alias reset ='git restore --staged'
 
-# vim
-alias vi='/usr/bin/vim'
+ # alias
+ alias cat='bat'
+ alias ls='exa'
 
-# cd > ls
-function cd
-  builtin cd $argv[1]
-  ls
-end
+ # actovator
+ alias acuc='activator cleanu pdate compile run'
+ alias debug='activator -jvm-debug 9999 run'
 
-# encoding
-set -x LANG ja_JP.UTF-8
+ # vim
+ alias vi='/usr/bin/vim'
 
-# nodebrew
-set -x PATH $HOME/.nodebrew/current/bin $PATH
+ # cd > ls
+ function cd
+   builtin cd $argv[1]
+   exa
+ end
 
-# homebrew
-set -U fish_user_paths /usr/local/bin $fish_user_paths
+ # encoding
+ set -x LANG ja_JP.UTF-8
 
-# go
-set GOPATH $HOME
-set PATH $PATH $GOPATH/bin
+ # nodebrew
+ set -x PATH $HOME/.nodebrew/current/bin $PATH
+
+ # homebrew
+ set -U fish_user_paths /usr/local/bin $fish_user_paths
+
+ # go
+ set GOPATH $HOME
+ set PATH $PATH $GOPATH/bin
