@@ -52,16 +52,17 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ###alias
 ###-----------------------------------
 alias lg='lazygit'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
 alias sozsh='source ~/.zshrc'
 alias zshconfig='vim ~/.zshrc'
+alias ls='exa'
+alias ll='exa -ahl --git'
 
 ###--------------------------------------
 ### その他
 ### -------------------------------------
-
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 
 ###-------------------------------------
@@ -122,3 +123,6 @@ export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/k00121/.sdkman"
 [[ -s "/Users/k00121/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/k00121/.sdkman/bin/sdkman-init.sh"
+
+## starship
+eval "$(starship init zsh)"
