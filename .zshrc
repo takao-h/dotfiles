@@ -56,14 +56,9 @@ alias sozsh='source ~/.zshrc'
 alias zshconfig='vim ~/.zshrc'
 alias ls='exa'
 alias ll='exa -ahl --git'
-
-###--------------------------------------
-### その他
-### -------------------------------------
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-
 
 ###-------------------------------------
 # git alias
