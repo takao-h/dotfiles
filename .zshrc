@@ -46,7 +46,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 
 ### Flutter
-# export PATH="/Users/k00121/Dev/flutter/bin"
+export PATH="$PATH:[PATH_TO_FLUTTER]/flutter/bin"
 
 ###-----------------------------------
 ###alias
@@ -121,3 +121,6 @@ export SDKMAN_DIR="/Users/k00121/.sdkman"
 
 ## starship
 eval "$(starship init zsh)"
+
+## test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
