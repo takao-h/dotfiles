@@ -46,7 +46,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.cargo/bin:$PATH"
 
 ### Flutter
-export PATH="$PATH:[PATH_TO_FLUTTER]/flutter/bin"
+export PATH="$PATH:'pwd'/flutter/bin"
 
 ###-----------------------------------
 ###alias
