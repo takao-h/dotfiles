@@ -35,3 +35,6 @@
  # go
  set GOPATH $HOME
  set PATH $PATH $GOPATH/bin
+
+ #Flutter
+ set PATH=$PATH:'pwd'/flutter/bin
