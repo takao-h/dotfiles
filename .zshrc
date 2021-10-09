@@ -102,16 +102,16 @@ RPROMPT='`rprompt-git-current-branch`'
 # --------------------------------------------------
 #  コマンド入力補完
 # --------------------------------------------------
- 
+
 # 補完機能有効にする
 autoload -U compinit
 compinit -u
- 
+
 # 補完候補に色つける
 autoload -U colors
 colors
 zstyle ':completion:*' list-colors "${LS_COLORS}"
- 
+
 # 単語の入力途中でもTab補完を有効化
 setopt complete_in_word
 # 補完候補をハイライト
@@ -122,15 +122,32 @@ zstyle ':completion::complete:*' use-cache true
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 補完リストの表示間隔を狭くする
 setopt list_packed
- 
+
 # コマンドの打ち間違いを指摘してくれる
 #setopt correct
 #SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
 
+function peco-ghq-look () {
+    local ghq_roots="$(git config --path --get-all ghq.root)"
+    local selected_dir=$(ghq list --full-path | \
+        xargs -I{} ls -dl --time-style=+%s {}/.git | sed 's/.*\([0-9]\{10\}\)/\1/' | sort -nr | \
+        sed "s,.*\(${ghq_roots/$'\n'/\|}\)/,," | \
+        sed 's/\/.git//' | \
+        peco --prompt="cd-ghq >" --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd $(ghq list --full-path | grep --color=never -E "/$selected_dir$")"
+        zle accept-line
+    fi
+}
 
+zle -N peco-ghq-look
+bindkey '^G' peco-ghq-look
 
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
 
-
-
-
-
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
