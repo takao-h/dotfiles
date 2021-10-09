@@ -25,14 +25,16 @@ eval "$(pyenv init -)"
 ### nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-export PATH="$HOME/.exenv/bin:$PATH"
-eval "$(exenv init -)"
+# export PATH="$HOME/.exenv/bin:$PATH"
+# eval "$(exenv init -)"
 
 
 ###-----------------------------------
 ###alias
 ###-----------------------------------
 alias lg='lazygit'
+
+alias cat='bat'
 
 
 ### rbenv
@@ -51,9 +53,10 @@ fpath=(path/to/zsh-completions/src $fpath)
 
 # git alias
 alias g='git'
-alias pull='git pull'
-alias push='git push'
-
+alias pullm='git pull origin master'
+alias pushm='git push origin master'
+alias gs='git status'
+alias acc='git add -a && git commit -m'
 
 # cdしたあとで、自動的に ls する
  vfunction chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
