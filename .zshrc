@@ -1,1 +1,0 @@
-/Users/rem/.zprezto/runcoms/zshrc
