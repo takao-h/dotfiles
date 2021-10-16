@@ -57,6 +57,8 @@ alias pullm='git pull origin master'
 alias pushm='git push origin master'
 alias gs='git status'
 alias acc='git add -a && git commit -m'
+alias nb='git checkcout -b'
+alias ghw='gh repo view -w $(ghq list | peco)'
 
 # cdしたあとで、自動的に ls する
  vfunction chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
@@ -130,6 +132,7 @@ setopt list_packed
 #setopt correct
 #SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [Yes/No/Abort/Edit] => "
 
+## peco
 function peco-ghq-look () {
     local ghq_roots="$(git config --path --get-all ghq.root)"
     local selected_dir=$(ghq list --full-path | \
@@ -154,3 +157,4 @@ function peco-history-selection() {
 
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
+
