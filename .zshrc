@@ -33,7 +33,11 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 ###alias
 ###-----------------------------------
 alias lg='lazygit'
-
+alias ls="exa -h"
+alias la="ls -aF"
+alias ll='exa -ahl'
+alias lla="ls -laF"
+alias cat='bat'
 alias cat='bat'
 
 
@@ -164,3 +168,18 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^]' peco-src
+
+## ｆｚｆ
+function fd-fzf() {
+  local target_dir=$(fd -t d -I -H -E ".git"| fzf-tmux --reverse --query="$LBUFFER")
+  local current_dir=$(pwd)
+
+  if [ -n "$target_dir" ]; then
+    BUFFER="cd ${current_dir}/${target_dir}"
+    zle accept-line
+  fi
+
+  zle reset-prompt
+}
+zle -N fd-fzf
+bindkey "^n" fd-fzf
