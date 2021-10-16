@@ -16,3 +16,18 @@ alias nb='git checkcout -b'
 
 ## peco
 alias ghw='gh repo view -w $(ghq list | peco)'
+
+## 
+function fish_prompt
+  set -l last_status $status
+  printf ' '
+  if test $last_status -eq 0
+    set_color yellow
+    printf '✘╹◡╹✘'
+  else
+    set_color red
+    printf '✘>﹏<✘'
+  end
+  set_color normal
+  printf " < \n"
+end
