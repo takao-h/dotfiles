@@ -1,0 +1,9 @@
+[core]
+	editor = vim -c \"set fenc=utf-8\"
+[user]
+	email = hayashi_takao@cyberbuzz.co.jp
+	name = takao-h
+[ghq]
+	root = ~/development
+[ghq "https://github.com/CyberBuzz"]
+root = ~/development/work
