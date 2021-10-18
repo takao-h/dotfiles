@@ -59,6 +59,7 @@ fpath=(path/to/zsh-completions/src $fpath)
 alias g='git'
 alias pullm='git pull origin master'
 alias pushm='git push origin master'
+alias push='git push oirgin HEAD'
 alias gs='git status'
 alias acc='git add -a && git commit -m'
 alias nb='git checkcout -b'
