@@ -1,3 +1,7 @@
+[color "branch"]
+  current = yellow reverse
+  local = blue
+  remote = green
 [core]
 	editor = vim -c \"set fenc=utf-8\"
 [user]

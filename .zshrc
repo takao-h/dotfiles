@@ -57,11 +57,13 @@ fpath=(path/to/zsh-completions/src $fpath)
 
 # git alias
 alias g='git'
+alias AA='git add -A'
+alias aa='git add -a'
+alias c='git commit -m'
 alias pullm='git pull origin master'
 alias pushm='git push origin master'
 alias push='git push oirgin HEAD'
 alias gs='git status'
-alias acc='git add -a && git commit -m'
 alias nb='git checkcout -b'
 alias ghw='gh repo view -w $(ghq list | peco)'
 
