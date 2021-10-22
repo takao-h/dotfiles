@@ -44,6 +44,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ###--------------------------------------
 ### その他
 ### -------------------------------------
+alias sozsh="souece ~/.zshrc"
 fpath=(path/to/zsh-completions/src $fpath)
 
 # git alias
@@ -127,22 +128,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt list_packed
 
 ## peco
-function peco-ghq-look () {
-    local ghq_roots="$(git config --path --get-all ghq.root)"
-    local selected_dir=$(ghq list --full-path | \
-        xargs -I{} ls -dl --time-style=+%s {}/.git | sed 's/.*\([0-9]\{10\}\)/\1/' | sort -nr | \
-        sed "s,.*\(${ghq_roots/$'\n'/\|}\)/,," | \
-        sed 's/\/.git//' | \
-        peco --prompt="cd-ghq >" --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd $(ghq list --full-path | grep --color=never -E "/$selected_dir$")"
-        zle accept-line
-    fi
-}
-
-zle -N peco-ghq-look
-bindkey '^G' peco-ghq-look
-
 function peco-history-selection() {
     BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
     CURSOR=$#BUFFER
