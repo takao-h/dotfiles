@@ -25,34 +25,24 @@ eval "$(pyenv init -)"
 ### nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-# export PATH="$HOME/.exenv/bin:$PATH"
-# eval "$(exenv init -)"
-
-
 ###-----------------------------------
 ###alias
 ###-----------------------------------
+alias emacs='vim'
 alias lg='lazygit'
 alias ls="exa -h"
 alias la="ls -aF"
 alias ll='exa -ahl'
 alias lla="ls -laF"
 alias cat='bat'
-alias cat='bat'
-
 
 ### rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-### direnv
-# eval "$(direnv hook zsh)"
-
 ###--------------------------------------
 ### その他
 ### -------------------------------------
-
-
 fpath=(path/to/zsh-completions/src $fpath)
 
 # git alias
