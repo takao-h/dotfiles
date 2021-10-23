@@ -17,7 +17,7 @@ alias gs 'git status'
 alias nb 'git checkcout -b'
 
 ## peco
-alias ghw='gh repo view -w $(ghq list | peco)'
+# alias ghw='gh repo view -w $(ghq list | peco)'
 
 ##
 function fish_prompt

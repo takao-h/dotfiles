@@ -2,12 +2,12 @@
 add_newline = true
 
 # "❯" 記号を "➜" 記号に置き換えます
-[character]                            # 設定しようとしているモジュールの名前は "character" です。
+[character]
 success_symbol = "[➜](bold green)"     # "success_symbol" セグメントが「太字の緑色」スタイルの "➜" に設定されています
 
 # packageモジュールを無効にし、プロンプトから完全に隠します
 [package]
-disabled = true
+# disabled = true
 
 [[battery.display]]
 #バッテリーを表示するタイミング、表示する際の文字のスタイル
