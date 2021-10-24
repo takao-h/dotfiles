@@ -127,13 +127,21 @@ setopt list_packed
 
 ## peco
 function peco-history-selection() {
-    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
 
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
 zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+bindkey '^r' peco-history-selection
 
 function peco-src () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
@@ -161,5 +169,7 @@ function fd-fzf() {
 zle -N fd-fzf
 bindkey "^n" fd-fzf
 
+
+# path= "/Users/rem/development/github.com/takao-h/flutter_sampl/flutter/bin:$PATH"
 # starship
-eval "$(starship init zsh)"
+eval "$(starship init zsh)"path= "Users/rem/development/github.com/takao-h/flutter_sampl/flutter/bin:$PATH"
