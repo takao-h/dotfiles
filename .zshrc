@@ -171,5 +171,6 @@ bindkey "^n" fd-fzf
 
 
 # path= "/Users/rem/development/github.com/takao-h/flutter_sampl/flutter/bin:$PATH"
+
 # starship
-eval "$(starship init zsh)"path= "Users/rem/development/github.com/takao-h/flutter_sampl/flutter/bin:$PATH"
+eval "$(starship init zsh)"
