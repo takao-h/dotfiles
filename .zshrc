@@ -4,7 +4,6 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -25,34 +24,25 @@ eval "$(pyenv init -)"
 ### nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-# export PATH="$HOME/.exenv/bin:$PATH"
-# eval "$(exenv init -)"
-
-
 ###-----------------------------------
 ###alias
 ###-----------------------------------
+alias emacs='vim'
 alias lg='lazygit'
 alias ls="exa -h"
 alias la="ls -aF"
 alias ll='exa -ahl'
 alias lla="ls -laF"
 alias cat='bat'
-alias cat='bat'
-
 
 ### rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-### direnv
-# eval "$(direnv hook zsh)"
-
 ###--------------------------------------
 ### その他
 ### -------------------------------------
-
-
+alias sozsh="souece ~/.zshrc"
 fpath=(path/to/zsh-completions/src $fpath)
 
 # git alias
@@ -136,30 +126,22 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 setopt list_packed
 
 ## peco
-function peco-ghq-look () {
-    local ghq_roots="$(git config --path --get-all ghq.root)"
-    local selected_dir=$(ghq list --full-path | \
-        xargs -I{} ls -dl --time-style=+%s {}/.git | sed 's/.*\([0-9]\{10\}\)/\1/' | sort -nr | \
-        sed "s,.*\(${ghq_roots/$'\n'/\|}\)/,," | \
-        sed 's/\/.git//' | \
-        peco --prompt="cd-ghq >" --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd $(ghq list --full-path | grep --color=never -E "/$selected_dir$")"
-        zle accept-line
-    fi
-}
-
-zle -N peco-ghq-look
-bindkey '^G' peco-ghq-look
-
 function peco-history-selection() {
-    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
 
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
 zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+bindkey '^r' peco-history-selection
 
 function peco-src () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
@@ -186,3 +168,9 @@ function fd-fzf() {
 }
 zle -N fd-fzf
 bindkey "^n" fd-fzf
+
+
+# path= "/Users/rem/development/github.com/takao-h/flutter_sampl/flutter/bin:$PATH"
+
+# starship
+eval "$(starship init zsh)"
