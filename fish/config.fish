@@ -43,5 +43,8 @@ end
 
 # fish key bindings
 function fish_user_key_bindings
-  bind /cg ghq_peco_repo
+  bind \cr 'ghq_peco_repo #]'
 end
+
+
+starship init fish | source
