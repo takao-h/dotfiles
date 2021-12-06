@@ -45,18 +45,3 @@ end
 function fish_user_key_bindings
   bind /cg ghq_peco_repo
 end
-
-##
-function fish_prompt
-  set -l last_status $status
-  printf ' '
-  if test $last_status -eq 0
-    set_color yellow
-    printf '✘╹◡╹✘'
-  else
-    set_color red
-    printf '✘>﹏<✘'
-  end
-  set_color normal
-  printf " < \n"
-end
