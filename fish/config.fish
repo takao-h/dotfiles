@@ -11,7 +11,7 @@ alias lla "ls -laF"
 alias cat bat
 
 ## Git
-alias g git
+alias g 'git'
 alias pullm 'git pull origin master'
 alias pushm 'git push origin master'
 alias gs 'git status'
