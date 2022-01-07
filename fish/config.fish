@@ -2,6 +2,7 @@
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
+
 ## other
 alias ls "exa -h"
 alias la "ls -aF"
@@ -28,7 +29,7 @@ function peco_cd
 end
 
 function fish_user_key_bindings
-  bind /cc 'peco_cd' #追記
+  bind /cc 'peco_cd' 
 end
 
 # ghq + peco
@@ -43,8 +44,13 @@ end
 
 # fish key bindings
 function fish_user_key_bindings
-  bind \cr 'ghq_peco_repo #]'
+  bind \c] 'ghq_peco_repo #]'
 end
 
+# asdf
+source /usr/local/opt/asdf/libexec/asdf.fish
+
+# fish
+set -x PATH ~/bin/flutter/bin $PATH
 
 starship init fish | source
