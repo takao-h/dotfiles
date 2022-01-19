@@ -10,6 +10,8 @@ brew install openssh
 
 # install command line tools
 brew install fzf
+brew install asdf
+brew install vim
 brew install ghq
 brew install bat
 brew install fd
