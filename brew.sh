@@ -1,3 +1,4 @@
+
 # Make sure we’re using the latest Homebrew.
 brew update
 
@@ -13,3 +14,4 @@ brew install ghq
 brew install bat
 brew install fd
 brew install exa
+echo "👍 asdf install is done!"
