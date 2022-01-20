@@ -1,13 +1,12 @@
-[color "branch"]
+  [ghq]
+  root = ~/Develop
+  
+  [color "branch"]
   current = yellow reverse
   local = blue
   remote = green
-[core]
-	editor = vim -c \"set fenc=utf-8\"
-[user]
-	email = hayashi_takao@cyberbuzz.co.jp
-	name = takao-h
-[ghq]
-	root = ~/development
-[ghq "https://github.com/CyberBuzz"]
-root = ~/development/work
+  [core]
+  editor = vim -c \"set fenc=utf-8\"
+  [user]
+  email = takao.hayashi@zozo.com
+  name = takao-h
