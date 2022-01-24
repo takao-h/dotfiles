@@ -12,17 +12,17 @@ fi
 # Customize to your needs.
 export EDITOR='vim'
 
-### jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# ### jenv
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
 
-### pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# ### pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
-### nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+# ### nodebrew
+# export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 ###-----------------------------------
 ###alias
