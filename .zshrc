@@ -57,6 +57,12 @@ alias gs='git status'
 alias nb='git checkcout -b'
 alias ghw='gh repo view -w $(ghq list | peco)'
 
+# $ZDOTDIR/.zshrc.lazy
+export NODE_REPL_HISTORY="$XDG_STATE_HOME/node_history"
+export SQLITE_HISTORY="$XDG_STATE_HOME/sqlite_history"
+export MYSQL_HISTFILE="$XDG_STATE_HOME/mysql_history"
+export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
+
 # cdしたあとで、自動的に ls する
  vfunction chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
 
