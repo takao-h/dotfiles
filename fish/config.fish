@@ -12,8 +12,8 @@ alias cat bat
 
 ## Git
 alias g 'git'
-alias pullm 'git pull origin master'
-alias pushm 'git push origin master'
+alias pullm 'git pull origin main'
+alias pushm 'git push origin main'
 alias gs 'git status'
 alias nb 'git checkcout -b'
 
