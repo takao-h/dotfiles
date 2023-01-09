@@ -19,6 +19,9 @@ brew install fd
 brew install exa
 brew install hub
 
+brew cask install raycast
+brew cask install google-chrome
+
 # install font
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
