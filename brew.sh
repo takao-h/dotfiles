@@ -18,6 +18,9 @@ brew install bat
 brew install fd
 brew install exa
 brew install hub
+brew install jq
+brew install tig
+brew install curl
 
 brew cask install raycast
 brew cask install google-chrome
