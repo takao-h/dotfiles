@@ -21,6 +21,7 @@ brew install hub
 
 brew cask install raycast
 brew cask install google-chrome
+brew cask install Arc
 
 # install font
 brew tap homebrew/cask-fonts
