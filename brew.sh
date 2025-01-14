@@ -22,9 +22,9 @@ brew install jq
 brew install tig
 brew install curl
 
-brew cask install raycast
-brew cask install google-chrome
-brew cask install Arc
+brew install --cask raycast
+brew install --cask google-chrome
+brew install --cask Arc
 
 # install font
 brew tap homebrew/cask-fonts
