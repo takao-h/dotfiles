@@ -34,6 +34,8 @@ alias la="ls -aF"
 alias ll='exa -ahl'
 alias lla="ls -laF"
 alias cat='bat'
+alias ..='cd ../'
+alias ...='cd ../../'
 
 ### rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
