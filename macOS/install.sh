@@ -26,6 +26,9 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.dock autohide -bool true
 # 最近使ったアプリケーションを非表示
 defaults write com.apple.dock show-recents -bool false
+# Dockを擬似的に常に非表示にする
+defaults write com.apple.Dock autohide-delay -float 100000; killall Dock
+
 killall Dock
 
 # --- SystemUIServer関係 ---
