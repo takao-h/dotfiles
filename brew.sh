@@ -21,6 +21,7 @@ brew install hub
 brew install jq
 brew install tig
 brew install curl
+brew install mise
 
 brew install --cask raycast
 brew install --cask google-chrome
