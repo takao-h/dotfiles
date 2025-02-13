@@ -1,27 +1,36 @@
-#!/bin/sh
+#!/bin/zsh
 
-# asdfコマンドがなければasdfをインストール
-if ! (type asdf > /dev/null 2>&1); then
+# miseコマンドがなければmiseをインストール
+if ! (type mise > /dev/null 2>&1); then
   if ! (type brew > /dev/null 2>&1); then
-    sh homebrew/install.sh
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
   brew install coreutils curl git
-  brew install asdf
+  brew install mise
 fi
 
-# fish設定に書き込み
-echo -e "\nsource "(brew --prefix asdf)"/asdf.fish" >> ~/.config/fish/config.fish
+# zsh設定に書き込み
+echo 'eval "$(mise activate zsh)"' >> ~/.zshrc
 
 # Install Node.js
-asdf install nodejs latest
-asdf global nodejs "$(asdf list nodejs | tail -1 | sed -e 's/ //g')"
+mise use -g node@latest
 
 # Install Rust
-asdf install rust latest
-asdf global rust "$(asdf list rust | tail -1 | sed -e 's/ //g')"
+mise use -g rust@latest
 
 # Install Flutter
-asdf install flutter latest
-asdf global flutter "$(asdf list flutter | tail -1 | sed -e 's/ //g')"
+mise use -g flutter@latest
 
-echo "👍 asdf install is done!"
+# 最新バージョンを確認して設定
+NODE_VERSION=$(mise ls-remote node | grep -v - | tail -n 1)
+RUST_VERSION=$(mise ls-remote rust | grep -v - | tail -n 1)
+FLUTTER_VERSION=$(mise ls-remote flutter | grep -v - | tail -n 1)
+
+mise global node@$NODE_VERSION
+mise global rust@$RUST_VERSION
+mise global flutter@$FLUTTER_VERSION
+
+echo "👍 mise install is done!"
+
+# 変更を反映
+source ~/.zshrc
