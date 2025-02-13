@@ -21,6 +21,11 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # USBメモリに .DS_Store ファイルを作成しない
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
+# --- trackpad ---
+defaults write -g com.apple.trackpad.scaling 12
+defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold 0
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+
 # --- Dock ---
 # “自動的に非表示”をオン
 defaults write com.apple.dock autohide -bool true
