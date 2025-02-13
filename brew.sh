@@ -11,7 +11,6 @@ brew install openssh
 # install command line tools
 brew install fzf
 brew install peco
-brew install asdf
 brew install vim
 brew install ghq
 brew install bat
