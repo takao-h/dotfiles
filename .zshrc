@@ -31,6 +31,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ### -------------------------------------
 alias sozsh="souece ~/.zshrc"
 fpath=(path/to/zsh-completions/src $fpath)
+eval "$(mise activate zsh)"
 
 # git alias
 alias g='git'
