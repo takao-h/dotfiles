@@ -99,6 +99,20 @@ RPROMPT='`rprompt-git-current-branch`'
 #  コマンド入力補完
 # --------------------------------------------------
 
+# zsh-completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  autoload -Uz compinit
+  compinit
+fi
+
+# zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
 # 補完機能有効にする
 autoload -U compinit
 compinit -u
