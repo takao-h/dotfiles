@@ -31,7 +31,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ### -------------------------------------
 alias sozsh="souece ~/.zshrc"
 fpath=(path/to/zsh-completions/src $fpath)
-eval "$(mise activate zsh)"
+
+# mise
+eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 # git alias
 alias g='git'
@@ -106,12 +108,8 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-# zsh-autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# zsh-syntax-highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # 補完機能有効にする
 autoload -U compinit
