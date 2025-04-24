@@ -15,7 +15,7 @@ brew install vim
 brew install ghq
 brew install bat
 brew install fd
-brew install exa
+brew install eza
 brew install hub
 brew install jq
 brew install tig
