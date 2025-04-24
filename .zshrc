@@ -14,7 +14,7 @@ fi
 ###-----------------------------------
 alias emacs='vim'
 alias lg='lazygit'
-alias ls="exa -h"
+alias ls="eza -h"
 alias la="ls -aF"
 alias ll='exa -ahl'
 alias lla="ls -laF"
