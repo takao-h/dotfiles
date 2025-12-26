@@ -62,6 +62,23 @@ fi
 echo "Running brew.sh to install Homebrew packages..."
 "$DOTFILES_DIR/brew.sh"
 
+# Run macOS specific settings
+echo "Applying macOS settings..."
+"$DOTFILES_DIR/macOS/install.sh"
+
+# Install VSCode extensions
+echo "Installing VSCode extensions..."
+if type code > /dev/null 2>&1; then
+  while read -r extension; do
+    if [[ ! -z "$extension" && ! "$extension" =~ ^# ]]; then
+      echo "Installing VSCode extension: $extension"
+      code --install-extension "$extension"
+    fi
+  done < "$DOTFILES_DIR/.vscode/extensions.txt"
+else
+  echo "VSCode not found. Skipping VSCode extension installation."
+fi
+
 # Install mise if not already installed
 if ! (type mise > /dev/null 2>&1); then
   echo "mise not found. Installing mise..."

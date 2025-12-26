@@ -1,0 +1,3 @@
+# List of VSCode extensions to install, one per line.
+# Example: ms-vscode.go
+# Example: rust-lang.rust-analyzer
