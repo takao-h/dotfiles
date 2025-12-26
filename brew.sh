@@ -20,7 +20,6 @@ brew install hub
 brew install jq
 brew install tig
 brew install curl
-brew install mise
 brew install zsh-completions
 brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting
@@ -29,6 +28,7 @@ brew install --cask raycast
 brew install --cask google-chrome
 brew install --cask Arc
 brew install --cask iterm2
+brew install --cask ghostty
 # install font
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
