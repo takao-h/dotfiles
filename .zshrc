@@ -22,6 +22,7 @@ alias cat='bat'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias CP='| pbcopy'
+alias tree='eza -T'
 
 ### mise
 eval "$(/opt/homebrew/bin/mise activate zsh)"
