@@ -24,7 +24,7 @@ alias ...='cd ../../'
 alias CP='| pbcopy'
 
 ### mise
-eval "$(mise activate zsh)"
+eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 ### rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -50,6 +50,7 @@ alias push='git push oirgin HEAD'
 alias gs='git status'
 alias nb='git checkcout -b'
 alias ghw='gh repo view -w $(ghq list | peco)'
+alias glog='git log --oneline --decorate --graph --all'
 
 # $ZDOTDIR/.zshrc.lazy
 export NODE_REPL_HISTORY="$XDG_STATE_HOME/node_history"
@@ -116,6 +117,12 @@ if type brew &>/dev/null; then
 fi
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# zsh-autosuggestions
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+# zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # 補完機能有効にする
@@ -185,6 +192,9 @@ bindkey "^n" fd-fzf
 
 # path= "/Users/rem/development/github.com/takao-h/flutter_sampl/flutter/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
+
+# path
+export PATH="$PATH:$(brew --prefix)/opt/llvm/bin"
 
 # starship
 eval "$(starship init zsh)"
