@@ -45,3 +45,4 @@ added_style = 'fg:#9ece6a bg:#1a1b26'
 deleted_style = 'fg:#9ece6a bg:#1a1b26'
 format = '[+$added/-$deleted]($deleted_style)'
 disabled = false
+

@@ -16,11 +16,15 @@ alias emacs='vim'
 alias lg='lazygit'
 alias ls="eza -h"
 alias la="ls -aF"
-alias ll='exa -ahl'
+alias ll='eza -ahl'
 alias lla="ls -laF"
 alias cat='bat'
 alias ..='cd ../'
 alias ...='cd ../../'
+alias CP='| pbcopy'
+
+### mise
+eval "$(mise activate zsh)"
 
 ### rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -29,7 +33,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ###--------------------------------------
 ### その他
 ### -------------------------------------
-alias sozsh="souece ~/.zshrc"
+alias sozsh="souece /Users/remsleep/dotfiles/.zshrc"
 fpath=(path/to/zsh-completions/src $fpath)
 
 # mise
@@ -52,6 +56,9 @@ export NODE_REPL_HISTORY="$XDG_STATE_HOME/node_history"
 export SQLITE_HISTORY="$XDG_STATE_HOME/sqlite_history"
 export MYSQL_HISTFILE="$XDG_STATE_HOME/mysql_history"
 export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
+
+# Starship promptの設定
+export STARSHIP_CONFIG="/Users/remsleep/dotfiles/starship.toml"
 
 # cdしたあとで、自動的に ls する
 vfunction chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
@@ -177,6 +184,7 @@ bindkey "^n" fd-fzf
 
 
 # path= "/Users/rem/development/github.com/takao-h/flutter_sampl/flutter/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 
 # starship
 eval "$(starship init zsh)"
