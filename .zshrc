@@ -50,7 +50,7 @@ alias pushm='git push origin master'
 alias push='git push oirgin HEAD'
 alias gs='git status'
 alias nb='git checkcout -b'
-alias ghw='gh repo view -w $(ghq list | peco)'
+alias ghw='gh repo view -w $(ghq list | fzf)'
 alias glog='git log --oneline --decorate --graph --all'
 
 # $ZDOTDIR/.zshrc.lazy
@@ -146,8 +146,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 補完リストの表示間隔を狭くする
 setopt list_packed
 
-## peco
-function peco-history-selection() {
+## fzf history
+function fzf-history-selection() {
     local tac
     if which tac > /dev/null; then
         tac="tac"
@@ -157,25 +157,56 @@ function peco-history-selection() {
 
     BUFFER=$(\history -n 1 | \
         eval $tac | \
-        peco --query "$LBUFFER")
+        fzf --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle clear-screen
 }
-zle -N peco-history-selection
-bindkey '^r' peco-history-selection
+zle -N fzf-history-selection
+bindkey '^r' fzf-history-selection
 
-function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+function fzf-src () {
+  local selected_dir=$(ghq list -p | fzf --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
   fi
   zle clear-screen
 }
-zle -N peco-src
-bindkey '^]' peco-src
+zle -N fzf-src
+bindkey '^]' fzf-src
 
-## ｆｚｆ
+## fzf
+export FZF_DEFAULT_OPTS="--reverse --no-sort --no-hscroll --preview-window=down"
+
+# fzfでgitブランチを選択してcheckout
+function fbr() {
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# fzfでgitブランチを選択（プレビュー付き）
+user_name=$(git config user.name)
+fmt="\
+%(if:equals=$user_name)%(authorname)%(then)%(color:default)%(else)%(color:brightred)%(end)%(refname:short)|\
+%(committerdate:relative)|\
+%(subject)"
+function select-git-branch-friendly() {
+  selected_branch=$(
+    git branch --sort=-committerdate --format=$fmt --color=always \
+    | column -ts'|' \
+    | fzf --ansi --exact --preview='git log --oneline --graph --decorate --color=always -50 {+1}' \
+    | awk '{print $1}' \
+  )
+  BUFFER="${LBUFFER}${selected_branch}${RBUFFER}"
+  CURSOR=$#LBUFFER+$#selected_branch
+  zle redisplay
+}
+zle -N select-git-branch-friendly
+bindkey '^b' select-git-branch-friendly
+
 function fd-fzf() {
   local target_dir=$(fd -t d -I -H -E ".git"| fzf-tmux --reverse --query="$LBUFFER")
   local current_dir=$(pwd)
